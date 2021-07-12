@@ -6,10 +6,10 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 const twilioAccountSid = "AC8cc92cda3a1b99692e6f98fce8ba92d0";
@@ -78,5 +78,3 @@ app.listen(PORT, () => {
   console.log("server started");
   console.log(`Listening at port ${PORT}`);
 });
-
-// `api/token-service?identity=${randomId}${identity}`
