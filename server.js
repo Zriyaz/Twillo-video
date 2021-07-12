@@ -6,12 +6,18 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 
-// const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
+// // const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "/client/build")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// });
 
 const twilioAccountSid = "AC8cc92cda3a1b99692e6f98fce8ba92d0";
 const twilioAuthToken = "a0f4ad2fd811d6b66c767744526621c3";
@@ -77,5 +83,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log("server started");
-  console.log(`Listening at port ${PORT}`);
+  console.log(`Listening at  ${PORT}`);
 });
