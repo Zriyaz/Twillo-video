@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
 const twilioAccountSid = "AC8cc92cda3a1b99692e6f98fce8ba92d0";
