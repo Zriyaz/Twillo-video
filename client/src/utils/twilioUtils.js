@@ -83,7 +83,7 @@ export const connectToRoom = async (
 };
 
 export const checkIfRoomExists = async (roomId) => {
-  const response = await axios.get(`/api/room-exists?roomId=${roomId}`);
+  const response = await axios.get(`api/room-exists?roomId=${roomId}`);
 
   return response.data.roomExists;
 };
